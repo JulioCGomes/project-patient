@@ -21,5 +21,20 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create();
         Patient::factory(5)->create();
         Address::factory(5)->create();
+
+        /**
+         * User default
+         */
+        User::factory(1)->create([
+            'email' => 'admin@admin.com'
+        ]);
+
+        /**
+         * User testing.
+         */
+        User::factory(1)->create([
+            'name' => 'testing',
+            'email' => 'mailtesting@testing.com'
+        ]);
     }
 }

@@ -22,5 +22,4 @@ install: ## 🟢 Command composer install.
 	@echo "🟢 Make: Composer install\n"
 	docker-compose exec -it app composer install
 
-
 ###php artisan config:clear && php artisan view:clear && php artisan route:clear && php artisan cache:clear && php artisan config:cache && php artisan view:cache && php artisan route:cache && php artisan config:clear

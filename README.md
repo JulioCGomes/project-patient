@@ -1,6 +1,6 @@
 ### Passo a passo
 ```sh
-cd my-project/
+cd project-patient/
 ```
 
 Crie o Arquivo .env
@@ -49,15 +49,30 @@ Instale as dependências do projeto
 composer install
 ```
 
-
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
 ```
 
+
+Rodar as migrations para o projeto.
+```sh
+php artisan migrate
+```
+
+Rodar o seeder para ter os dados.
+```sh
+php artisan db:seed
+```
+
 Storage link para gerar as imagens:
 ```sh
 php artisan storage:link
+```
+
+Gerar chave do passport para autenticação:
+```sh
+php artisan passport:install
 ```
 
 Acesse o projeto

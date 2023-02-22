@@ -1,2 +1,9 @@
 .docker
 /vendor
+.env
+/.vscode
+/storage/*.key
+/public/storage
+/public/vendor
+/node_modules
+.phpunit.result.cache

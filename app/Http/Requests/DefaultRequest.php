@@ -57,8 +57,13 @@ abstract class DefaultRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        throw (new ValidationException($validator, response()->json([
-            'errors' => $validator->getMessageBag()->getMessages()
-        ], Response::HTTP_BAD_REQUEST)));
+        throw (
+            new ValidationException(
+                $validator,
+                response()->json([
+                    'errors' => $validator->getMessageBag()->getMessages()
+                ], 500)
+            )
+        )->errorBag($this->errorBag);
     }
 }
