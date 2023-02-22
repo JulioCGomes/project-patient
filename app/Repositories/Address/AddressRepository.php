@@ -61,6 +61,17 @@ class AddressRepository implements AddressRepositoryInterface
     }
 
     /**
+     * Update address.
+     *
+     * @param array $address
+     * @return array
+     */
+    public function updateAddress(int $idAddress, array $address): array
+    {
+        return $this->addressAdapter->updateAddress((int) $idAddress, (array) $address);
+    }
+
+    /**
      * Delete address.
      *
      * @param integer $idAddress

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Address\AddressCreateRequest;
 use App\Http\Requests\Address\AddressSearchRequest;
+use App\Http\Requests\Address\AddressUpdateRequest;
 use App\Http\Resources\AddressResource;
 use App\Services\Address\AddressServiceInterface;
 use Exception;
@@ -75,6 +76,39 @@ class AddressController extends Controller
             DB::rollBack();
             return response()->json([
                 'msg' => 'Unable to add address. Error: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Update address.
+     *
+     * @param AddressUpdateRequest $request
+     * @return Json
+     */
+    public function update($idAddress, AddressUpdateRequest $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            /** @var array $dataAddress */
+            $dataAddress = $request->validated();
+
+            $dataAddress['id'] = (int) $idAddress;
+
+            /** @var array $updateAddress */
+            $updateAddress = $this->addressService->updateAddress($dataAddress);
+
+            /** @var AddressResource $address */
+            $address = new AddressResource(['data' => $updateAddress]);
+
+            DB::commit();
+
+            return $address;
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'msg' => 'Unable to update address. Error: ' . $e->getMessage()
             ], 500);
         }
     }

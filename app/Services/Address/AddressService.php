@@ -91,6 +91,28 @@ class AddressService implements AddressServiceInterface
     }
 
     /**
+     * Update address.
+     *
+     * @param array $address
+     * @return array
+     */
+    public function updateAddress(array $address): array
+    {
+        if (empty($address['id'])) {
+            throw new Exception('ID address not found.');
+        }
+
+        /** @var array $currentAddress */
+        $currentAddress = $this->addressRepository->getAddressById((int) $address['id']);
+
+        if (empty($currentAddress)) {
+            throw new Exception('Address not found.', 500);
+        }
+
+        return $this->addressRepository->updateAddress((int) $address['id'],  (array) $address);
+    }
+
+    /**
      * Delete address.
      *
      * @param integer $idAddress

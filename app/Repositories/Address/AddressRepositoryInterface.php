@@ -36,6 +36,15 @@ interface AddressRepositoryInterface
     public function addAddress(array $address): array;
 
     /**
+     * Update address.
+     *
+     * @param integer $idAddress
+     * @param array $address
+     * @return array
+     */
+    public function updateAddress(int $idAddress, array $address): array;
+
+    /**
      * Delete Address.
      *
      * @param integer $idAddress

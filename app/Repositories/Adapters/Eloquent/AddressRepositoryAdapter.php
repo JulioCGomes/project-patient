@@ -57,7 +57,11 @@ class AddressRepositoryAdapter
      */
     public function getAddressById(int $idAddress): array
     {
-        return $this->addressModel->where('id', $idAddress)->get()->toArray();
+        return $this->addressModel
+            ->with(['patient'])
+            ->where('id', $idAddress)
+            ->get()
+            ->toArray();
     }
 
     /**
@@ -69,6 +73,20 @@ class AddressRepositoryAdapter
     public function addAddress(array $address): array
     {
         return $this->addressModel->create($address)->toArray();
+    }
+
+    /**
+     * Update address.
+     *
+     * @param integer $idAddress
+     * @param array $address
+     * @return array
+     */
+    public function updateAddress(int $idAddress, array $address): array
+    {
+        $this->addressModel->where('id', $idAddress)->update($address);
+
+        return $this->getAddressById($idAddress);
     }
 
     /**

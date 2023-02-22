@@ -18,7 +18,7 @@ class PatientCreateRequest extends DefaultRequest
         'date_both' => ['required', 'date_format:Y-m-d'],
         'cpf' => ['required', 'string', 'min:13', 'max:14', 'cpf', 'formato_cpf', 'unique:patients,cpf'],
         'cns' => ['required', 'string', 'min:3', 'max:30'],
-        'image' => ['image']
+        'image' => ['image', 'mimes:jpg,png,jpeg,gif,svg', 'max:2048']
     ];
 
     /**

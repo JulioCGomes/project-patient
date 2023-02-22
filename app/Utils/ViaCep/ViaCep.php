@@ -4,6 +4,7 @@ namespace App\Utils\ViaCep;
 
 use Exception;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -47,8 +48,17 @@ class ViaCep implements ViaCepInterface
             /** @var string $urlRequest */
             $urlRequest = $this->urlApi . '/' . $cep .'/json';
 
+            /** @var array|null $viaCepCache */
+            $viaCepCache = Cache::get($urlRequest);
+
+            if (!empty($viaCepCache)) {
+                return $viaCepCache;
+            }
+
             /** @var \GuzzleHttp\Psr7\Response $request */
             $request = (new Client())->get($urlRequest);
+
+            Cache::put($urlRequest, json_decode($request->getBody(), true), 60);
 
             return json_decode($request->getBody(), true);
         } catch (Exception $e) {

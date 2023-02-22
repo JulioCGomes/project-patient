@@ -3,13 +3,10 @@
 cd my-project/
 ```
 
-
-
 Crie o Arquivo .env
 ```sh
 cp .env.example .env
 ```
-
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
@@ -30,6 +27,8 @@ SESSION_DRIVER=redis
 REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
+
+API_VIACEP="https://viacep.com.br/ws"
 ```
 
 
@@ -56,7 +55,10 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
+Storage link para gerar as imagens:
+```sh
+php artisan storage:link
+```
 
 Acesse o projeto
 [http://localhost:8989](http://localhost:8989)
-# project-patient

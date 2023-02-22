@@ -63,6 +63,12 @@ class PatientController extends Controller
             /** @var array $dataPatient*/
             $dataPatient = $request->validated();
 
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
+                /** @var string $pathImage */
+                $pathImage = $request->file('image')->store('image', 'public');
+                $dataPatient['image'] = $pathImage;
+            }
+
             /** @var array $newPatient */
             $newPatient = $this->patientService->addPatient($dataPatient);
 
@@ -86,13 +92,15 @@ class PatientController extends Controller
      * @param PatientUpdateRequest $request
      * @return Json
      */
-    public function update(PatientUpdateRequest $request)
+    public function update($idPatient, PatientUpdateRequest $request)
     {
         DB::beginTransaction();
 
         try {
             /** @var array $dataPatient*/
             $dataPatient = $request->validated();
+
+            $dataPatient['id'] = (int) $idPatient;
 
             /** @var array $updatePatient */
             $updatePatient = $this->patientService->updatePatient($dataPatient);

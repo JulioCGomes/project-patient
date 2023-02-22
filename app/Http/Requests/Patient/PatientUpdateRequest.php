@@ -12,7 +12,7 @@ class PatientUpdateRequest extends DefaultRequest
      * @return array
      */
     protected $rules = [
-        'id' => ['nullable', 'integer'],
+        'id' => ['required', 'integer'],
         'name' => ['string', 'min:3', 'max:32'],
         'name_mother' => ['string', 'min:3', 'max:32'],
         'date_both' => ['date_format:Y-m-d'],

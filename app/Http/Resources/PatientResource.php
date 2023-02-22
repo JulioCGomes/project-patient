@@ -51,7 +51,7 @@ class PatientResource extends JsonResource
             'dateBoth' => Carbon::parse($patient['date_both'])->format('d/m/Y H:i:s'),
             'cpf' => $patient['cpf'],
             'cns' => $patient['cns'],
-            'image' => env('APP_URL') .'/'. data_get($patient, 'image', 'image/default.png'),
+            'image' => env('APP_URL') .'/storage/'. data_get($patient, 'image', 'image/default.png'),
             'createAt' => Carbon::parse($patient['created_at'])->format('d/m/Y H:i:s'),
             'updateAt' => Carbon::parse($patient['updated_at'])->format('d/m/Y H:i:s'),
             'address' => $this->getAddress((array) data_get($patient, 'address', []))

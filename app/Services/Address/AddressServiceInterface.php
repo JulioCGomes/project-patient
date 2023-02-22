@@ -28,6 +28,14 @@ interface AddressServiceInterface
     public function addAddress(array $address): array;
 
     /**
+     * Update address.
+     *
+     * @param array $address
+     * @return array
+     */
+    public function updateAddress(array $address): array;
+
+    /**
      * Delete address.
      *
      * @param integer $idAddress
