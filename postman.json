@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "31f444b5-7df8-432d-96b6-905a6ff6c6fb",
+		"name": "Patient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9397828"
+	},
+	"item": [
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8989/api/patient?page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"patient"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "name_mother",
+									"value": "testando",
+									"type": "text"
+								},
+								{
+									"key": "date_both",
+									"value": "1997-09-30",
+									"type": "text"
+								},
+								{
+									"key": "cpf",
+									"value": "436.504.018-94",
+									"type": "text"
+								},
+								{
+									"key": "cns",
+									"value": "1233",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8989/api/patient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8989/api/patient/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"patient",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Julio Gomes",
+									"type": "text"
+								},
+								{
+									"key": "name_mother",
+									"value": "Rose",
+									"type": "text"
+								},
+								{
+									"key": "date_both",
+									"value": "1960-12-12",
+									"type": "text"
+								},
+								{
+									"key": "cpf",
+									"value": "508.225.288-78",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "cns",
+									"value": "1111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8989/api/patient/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"patient",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8989/api/address?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"address"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8989/api/address/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"address",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cep",
+									"value": "13070-107",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "via_cep",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8989/api/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cep",
+									"value": "1370-108",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8989/api/address/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"address",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ViaCep",
+			"item": [
+				{
+					"name": "ViaCep",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M4YmNiZThmNWEzZTdlZmZmN2UxOGRmNzllODFmZjQzMmUzOGJlMTQyMjkzMWU3MDc2OTYwYTNiYTM2YTVhYmQ4MjlkYTYzZTk3NWQxMmEiLCJpYXQiOjE2NzY5OTcyNjUuNDY2MTg0LCJuYmYiOjE2NzY5OTcyNjUuNDY2MTg3LCJleHAiOjE3MDg1MzMyNjUuNDQ0ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CJfVcPaBxmAel6rc6o3k6q_93B51eMzTe8uwyLRed-QHzJHIw_3fSdbE0W1ovcoBrZlIizVo_8Ep-OOYXt7nMHzSwQ58CTOPlAPufXRBCaSy8G9Yw-F8hyGIzDxE2pz-jaziFGXn9nFUn2u0bloofIcQSkquUBYLZI1oOoeALuPUmkBWr76aJJgW79BvKJ9JSyT6166MECs8c6brB0gy78JKQR6xALBAiUEjt-he3KCGYJB1QJW-yqvUzCiKw4YU1AOQVjENdrTufvMKSgJooDhRtkJPa4VxXwU7iBKOMkuQe47rGO-6UCde4JeF1SMIPrKXdxoY3Q0JzLD0pF6thwnwjkttaCHgY25yY9Tz3-Or_BZ6J1ZXpyJ7M7myRZu9mvWQeLoHXaGevjjxF_VJ_8PxWxU1SUNguLqGAIbjD1gEwwVqCZVW_y29OeHJ5fRiWYbLRVc3PU3cWwuAl18sBGb_TRVHWqp7_D9d8fI3klPS3xM6WOYErT1NIcQxORn7IGzl2uNOL4tL04LVZXDtBS-rYKEB0XG2pnVQiLYCnJ-fFlT_5ObbrqmRxGXFxLhYWBWriiU63_OMgGisP1DQ9mg1Y_9rZ4TCC6Etr2EzwI0fIOvFOBmd08TvHLK9Vd1yeftYE0I-1S3WsACQw2l95gfb_UFpx2p-2k3XuG1HDxM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8989/api/cep/13070107",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"api",
+								"cep",
+								"13070107"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "neil49@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "u56tVjXlUmAC6ZqFxWlaZ7pbOwnsZmBtbPHRQCte",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8989/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
