@@ -15,5 +15,5 @@ interface ViaCepInterface
      * @param string $cep
      * @return array
      */
-    public function getInfoCep(string $cep): array;
+    public function getInfoCep(string $cep);
 }

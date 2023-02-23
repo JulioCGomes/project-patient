@@ -31,9 +31,9 @@ class ViaCep implements ViaCepInterface
      * @param string $cep
      * @return void
      */
-    public function getInfoCep(string $cep): array
+    public function getInfoCep(string $cep)
     {
-        return (array) $this->sendRequest((string) $cep);
+        return $this->sendRequest((string) $cep);
     }
 
     /**
@@ -42,7 +42,7 @@ class ViaCep implements ViaCepInterface
      * @param string $cep
      * @return array
      */
-    private function sendRequest(string $cep): array
+    private function sendRequest(string $cep)
     {
         try {
             /** @var string $urlRequest */
@@ -63,7 +63,7 @@ class ViaCep implements ViaCepInterface
             return json_decode($request->getBody(), true);
         } catch (Exception $e) {
             Log::error($e->getMessage());
-            return [];
+            return response()->json(['errors' => ['viacep' => 'Error querying viacep.']], 500);
         }
     }
 }

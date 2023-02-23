@@ -2,12 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Models\Patient;
 use Tests\TestCase;
 
 class PatientTest extends TestCase
 {
-    /** @var string API_CREATE */
-    const API_CREATE = '/api/patient';
+    /** @var string API_PATIENT */
+    const API_PATIENT = '/api/patient';
 
     /**
      * Before each test method
@@ -21,7 +22,7 @@ class PatientTest extends TestCase
     }
 
     /**
-     * Test patient creating.
+     * Test patient creating invalid.
      *
      * @param array $fields
      * @param array $errors
@@ -30,14 +31,52 @@ class PatientTest extends TestCase
      */
     public function test_creating_invalid(array $fields, array $errors)
     {
-        $response = $this->post(self::API_CREATE, $fields);
+        $response = $this->post(self::API_PATIENT, $fields);
         $response->assertStatus(500);
         $response->assertJsonValidationErrors($errors);
     }
 
     /**
+     * Test patient creating.
+     *
+     * @param array $fields
+     * @param array $errors
+     * @dataProvider creating_success_patient
+     * @return void
+     */
+    public function test_creating_success(array $fields, array $errors)
+    {
+        $response = $this->post(self::API_PATIENT, $fields);
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Get success.
+     *
+     * @return void
+     */
+    public function test_get_success()
+    {
+        $response = $this->get(self::API_PATIENT);
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Test success delete.
+     *
+     * @return void
+     */
+    public function test_delete_success()
+    {
+        $patient = Patient::where('name', 'Name Testing Patient.')->first();
+        $response = $this->delete(self::API_PATIENT.'/'.$patient->id);
+        $response->assertStatus(202);
+    }
+
+    /**
      * Creating invalid patient.
      *
+     * @dataProvider creating_success_patient
      * @return void
      */
     private function creating_invalid_patient(): array
@@ -112,6 +151,27 @@ class PatientTest extends TestCase
                 'errors' => [
                     'cpf' => 'The cpf needs to be valid.',
                 ]
+            ],
+        ];
+    }
+
+    /**
+     * Creating success patient.
+     *
+     * @return array
+     */
+    private function creating_success_patient(): array
+    {
+        return [
+            'Create Patient' => [
+                'fields' => [
+                    'name' => 'Name Testing Patient.',
+                    'name_mother' => 'Name Mother Patient.',
+                    'date_both' => '1997-09-30',
+                    'cpf' => '436.504.018-94',
+                    'cns' => '123456'
+                ],
+                'errors' => []
             ],
         ];
     }
